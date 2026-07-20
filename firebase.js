@@ -1,49 +1,20 @@
-// Firebase configuration
+// firebase.js
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD6AK1vue6E9P9gqLr2xRw2ZxodY3am84M  ",
-  authDomain: "TON_AUTH_DOMAIN",
-  projectId: "TON_PROJECT_ID",
-  storageBucket: "TON_STORAGE_BUCKET",
-  messagingSenderId: "TON_MESSAGING_SENDER_ID",
+  apiKey: "AIzaSyD6AK1vue6E9P9gqLr2xRw2ZxodY3am84M  
+");  
+  authDomain: "TON_PROJET.firebaseapp.com",
+  projectId: "TON_PROJET",
+  storageBucket: "TON_PROJET.appspot.com",
+  messagingSenderId: "TON_SENDER_ID",
   appId: "TON_APP_ID"
 };
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { 
-  getAuth, 
-  RecaptchaVerifier, 
-  signInWithPhoneNumber 
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
-window.sendCode = function() {
-  window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
-    size: "normal"
-  });
-
-  const phone = document.getElementById("phone").value;
-
-  signInWithPhoneNumber(auth, phone, window.recaptchaVerifier)
-    .then((confirmationResult) => {
-      window.confirmationResult = confirmationResult;
-      alert("Code SMS envoyé");
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-
-window.verifyCode = function() {
-  const code = document.getElementById("code").value;
-
-  window.confirmationResult.confirm(code)
-    .then(() => {
-      alert("Connexion réussie");
-      window.location.href = "index.html";
-    })
-    .catch(() => {
-      alert("Code incorrect");
-    });
-};
+export const auth = getAuth(app);
+export const db = getFirestore(app);
