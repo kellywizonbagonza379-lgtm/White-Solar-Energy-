@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panier - White Solar Energy</title>
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    margin:0;
+}
+header{
+    background:#0b6e4f;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+.container{
+    max-width:800px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+.item{
+    border-bottom:1px solid #ddd;
+    padding:15px 0;
+}
+button{
+    background:#0b6e4f;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Mon Panier</h1>
+</header>
+
+<div class="container">
+
+<div class="item">
+<h3>Panneau Solaire 550W</h3>
+<p>Prix : 250 USD</p>
+</div>
+
+<div class="item">
+<h3>Batterie Lithium</h3>
+<p>Prix : 450 USD</p>
+</div>
+
+<h2>Total : 700 USD</h2>
+
+<button onclick="window.location.href='checkout.html'">
+Passer au paiement
+</button>
+
+</div>
+
+</body>
+</html>
