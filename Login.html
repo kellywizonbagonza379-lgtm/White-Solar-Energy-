@@ -66,10 +66,36 @@ button:hover{
     measurementId: "G-V10M1W72WR"
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+// Initialiser Firebase
+const app = initializeApp(firebaseConfig);
+
+// Authentification
+import {
+  getAuth,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const auth = getAuth(app);
+
+// Configuration du reCAPTCHA
+window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
+  size: "normal",
+});
+
+// Fonction pour envoyer le code SMS
+window.sendCode = function () {
+  const phoneNumber = document.getElementById("phone").value;
+
+  signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier)
+    .then((confirmationResult) => {
+      window.confirmationResult = confirmationResult;
+      alert("Code SMS envoyé !");
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
 <html>
 <head>
   <title>Inscription - White Solar Energy</title>
