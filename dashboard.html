@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord - White Solar Energy</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
+
+header{
+    background:#0b6e4f;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:white;
+    margin-bottom:15px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+button{
+    background:#0b6e4f;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#09563d;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>White Solar Energy</h1>
+<p>Bienvenue sur votre tableau de bord</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Panneaux Solaires</h2>
+<p>Haute qualité pour maisons et entreprises.</p>
+<button>Commander</button>
+</div>
+
+<div class="card">
+<h2>Batteries Solaires</h2>
+<p>Stockez votre énergie en toute sécurité.</p>
+<button>Commander</button>
+</div>
+
+<div class="card">
+<h2>Onduleurs</h2>
+<p>Convertisseurs performants pour votre installation.</p>
+<button>Commander</button>
+</div>
+
+<br>
+
+<button onclick="logout()">Déconnexion</button>
+
+</div>
+
+<script>
+function logout(){
+    window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
