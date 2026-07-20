@@ -1,6 +1,6 @@
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "TON_API_KEY",
+  apiKey: "AIzaSyD6AK1vue6E9P9gqLr2xRw2ZxodY3am84M  ",
   authDomain: "TON_AUTH_DOMAIN",
   projectId: "TON_PROJECT_ID",
   storageBucket: "TON_STORAGE_BUCKET",
