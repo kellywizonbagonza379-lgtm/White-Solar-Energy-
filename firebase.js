@@ -1,49 +1,23 @@
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "TON_API_KEY",
-  authDomain: "TON_AUTH_DOMAIN",
-  projectId: "TON_PROJECT_ID",
-  storageBucket: "TON_STORAGE_BUCKET",
-  messagingSenderId: "TON_MESSAGING_SENDER_ID",
-  appId: "TON_APP_ID"
-};
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { 
-  getAuth, 
-  RecaptchaVerifier, 
-  signInWithPhoneNumber 
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD6AK1vue6E9P9gqLr2xRw2ZxodY3am84M",
+    authDomain: "white-solar-energy.firebaseapp.com",
+    projectId: "white-solar-energy",
+    storageBucket: "white-solar-energy.firebasestorage.app",
+    messagingSenderId: "492509652443",
+    appId: "1:492509652443:web:26dcf8ffc7507c321573fe",
+    measurementId: "G-V10M1W72WR"
+  };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-window.sendCode = function() {
-  window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
-    size: "normal"
-  });
-
-  const phone = document.getElementById("phone").value;
-
-  signInWithPhoneNumber(auth, phone, window.recaptchaVerifier)
-    .then((confirmationResult) => {
-      window.confirmationResult = confirmationResult;
-      alert("Code SMS envoyé");
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-
-window.verifyCode = function() {
-  const code = document.getElementById("code").value;
-
-  window.confirmationResult.confirm(code)
-    .then(() => {
-      alert("Connexion réussie");
-      window.location.href = "index.html";
-    })
-    .catch(() => {
-      alert("Code incorrect");
-    });
-};
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
