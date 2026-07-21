@@ -1,0 +1,17 @@
+<h2>Demande de retrait</h2>
+
+<form id="withdrawForm">
+  <input type="number" id="amount" placeholder="Montant" required>
+
+  <select id="method" required>
+    <option value="">Choisir un mode</option>
+    <option value="Mobile Money">Mobile Money</option>
+    <option value="Banque">Banque</option>
+  </select>
+
+  <input type="text" id="account" placeholder="Numéro de téléphone ou compte" required>
+
+  <button type="submit">Demander un retrait</button>
+</form>
+
+<p id="message"></p>
