@@ -1,184 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Créer un compte - White Solar Energy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer un compte - White Solar Energy</title>
 
-<style>
-body{
-font-family:Arial,sans-serif;
-background:#f2f2f2;
-margin:0;
-padding:0;
-}
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f2f2f2;
+      margin:0;
+      padding:0;
+    }
 
-.container{
-max-width:400px;
-margin:40px auto;
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
+    .container{
+      max-width:400px;
+      margin:40px auto;
+      background:#fff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,.2);
+    }
 
-h2{
-text-align:center;
-color:#0A4DA2;
-}
+    h2{
+      text-align:center;
+      color:#0A4DA2;
+    }
 
-input,select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:6px;
-box-sizing:border-box;
-}
+    input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:1px solid #ccc;
+      border-radius:6px;
+      box-sizing:border-box;
+    }
 
-button{
-width:100%;
-padding:12px;
-background:#0A4DA2;
-color:white;
-border:none;
-border-radius:6px;
-font-size:16px;
-cursor:pointer;
-}
+    button{
+      width:100%;
+      padding:12px;
+      margin-top:10px;
+      background:#0A4DA2;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:16px;
+    }
 
-button:hover{
-background:#083a7d;
-}
+    button:hover{
+      background:#083a7d;
+    }
 
-p{
-text-align:center;
-}
+    p{
+      text-align:center;
+    }
 
-a{
-color:#0A4DA2;
-text-decoration:none;
-}
-</style>
+    a{
+      color:#0A4DA2;
+      text-decoration:none;
+    }
 
+    #recaptcha-container{
+      margin:15px 0;
+    }
+  </style>
 </head>
-<script type="module" src="firebase.js"></script>
-<script type="module" src="firebase.js"></script>
-<script type="module" src="register.js"></script>
-</body>
 
-<h1>Créer un compte</h1>
+<body>
 
-<input type="text" placeholder="Nom">
-<input type="tel" placeholder="Numéro de téléphone">
-<input type="password" placeholder="Mot de passe">
-<input type="text" id="phone" placeholder="Numéro de téléphone">
-
-<button onclick="sendCode()">S'inscrire</button>
-
-<div id="recaptcha-container"></div>
-
-<input type="text" id="code" placeholder="Code SMS">
-
-<button onclick="verifyCode()">Valider le code</button>
-<button>Créer le compte</button>
-
-</body>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD6AK1vue6E9P9gqLr2xRw2ZxodY3am84M",
-    authDomain: "white-solar-energy.firebaseapp.com",
-    projectId: "white-solar-energy",
-    storageBucket: "white-solar-energy.firebasestorage.app",
-    messagingSenderId: "492509652443",
-    appId: "1:492509652443:web:26dcf8ffc7507c321573fe",
-    measurementId: "G-V10M1W72WR"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseC
-// Initialiser Firebase
-const app = initializeApp(firebaseConfig);
-
-// Authentification
-import {
-  getAuth,
-  RecaptchaVerifier,
-  signInWithPhoneNumber
-<button onclick="sendCode()">S'inscrire</button>} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-const auth = getAuth(app);
-
-// Configuration du reCAPTCHA
-window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
-  size: "normal",
-});
-
-// Fonction pour envoyer le code SMS
-window.sendCode = function () {
-  const phoneNumber = document.getElementById("phone").value;
-
-  signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier)
-    .then((confirmationResult) => {
-      window.confirmationResult = confirmationResult;
-      alert("Code SMS envoyé !");
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-</body>
-</html>
-<nav style="background:#0b6e4f;padding:15px;text-align:center;">
-  <a href="index.html" style="color:white;margin:10px;text-decoration:none;">Accueil</a>
-  <a href="products.html" style="color:white;margin:10px;text-decoration:none;">Produits</a>
-  <a href="cart.html" style="color:white;margin:10px;text-decoration:none;">Panier</a>
-  <a href="register.html" style="color:white;margin:10px;text-decoration:none;">Créer un compte</a>
-  <a href="login.html" style="color:white;margin:10px;text-decoration:none;">Connexion</a>
-  <a href="dashboard.html" style="color:white;margin:10px;text-decoration:none;">Tableau de bord</a>
-  <a href="checkout.html" style="color:white;margin:10px;text-decoration:none;">Paiement</a>
-</nav>
 <div class="container">
 
-<h2>Créer un compte</h2>
+  <h2>Créer un compte</h2>
 
-<form>
+  <input type="text" id="name" placeholder="Nom complet">
 
-<input type="text" placeholder="Nom complet" required>
+  <input type="tel" id="phone" placeholder="+2567XXXXXXXX" required>
 
-<input type="tel" placeholder="Numéro de téléphone" required>
+  <input type="password" id="password" placeholder="Mot de passe">
 
-<input type="email" placeholder="Adresse e-mail (facultatif)">
+  <div id="recaptcha-container"></div>
 
-<select required>
-<option value="">Choisir votre pays</option>
-<option>Ouganda</option>
-<option>RDC</option>
-<option>Kenya</option>
-<option>Tanzanie</option>
-<option>Rwanda</option>
-<option>Burundi</option>
-</select>
+  <button id="registerBtn">Envoyer le code SMS</button>
 
-<input type="password" placeholder="Mot de passe" required>
+  <input type="text" id="code" placeholder="Code reçu par SMS">
 
-<input type="password" placeholder="Confirmer le mot de passe" required>
+  <button id="verifyBtn">Vérifier le code</button>
 
-<button type="submit">Créer un compte</button>
-
-</form>
-
-<p>Vous avez déjà un compte ? <a href="login.html">Se connecter</a></p>
+  <p>
+    Vous avez déjà un compte ?
+    <a href="login.html">Se connecter</a>
+  </p>
 
 </div>
+
+<script type="module" src="register.js"></script>
 
 </body>
 </html>
