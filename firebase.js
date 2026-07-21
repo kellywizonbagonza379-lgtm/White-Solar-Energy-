@@ -49,3 +49,13 @@ window.sendCode = function () {
     .catch((error) => {
       alert(error.message);
     });
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const db = getFirestore(app);
+
+export { db, auth, collection, addDoc, serverTimestamp };
