@@ -1,96 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Créer un compte - White Solar Energy</title>
-
-  <style>
-    body{
-      font-family: Arial, sans-serif;
-      background:#f2f2f2;
-      margin:0;
-      padding:0;
-    }
-
-    .container{
-      max-width:400px;
-      margin:40px auto;
-      background:#fff;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,.2);
-    }
-
-    h2{
-      text-align:center;
-      color:#0A4DA2;
-    }
-
-    input{
-      width:100%;
-      padding:12px;
-      margin:10px 0;
-      border:1px solid #ccc;
-      border-radius:6px;
-      box-sizing:border-box;
-    }
-
-    button{
-      width:100%;
-      padding:12px;
-      margin-top:10px;
-      background:#0A4DA2;
-      color:#fff;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-    }
-
-    button:hover{
-      background:#083a7d;
-    }
-
-    p{
-      text-align:center;
-    }
-
-    a{
-      color:#0A4DA2;
-      text-decoration:none;
-    }
-
-    #recaptcha-container{
-      margin:15px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte - White Solar Energy</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="container">
+<div class="login-container">
 
-  <h2>Créer un compte</h2>
+    <h2>Créer un compte</h2>
 
-  <input type="text" id="name" placeholder="Nom complet">
+    <form id="register-form">
 
-  <input type="tel" id="phone" placeholder="+2567XXXXXXXX" required>
+        <input
+            type="text"
+            id="name"
+            placeholder="Nom complet"
+            required
+        >
 
-  <input type="password" id="password" placeholder="Mot de passe">
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Numéro de téléphone"
+            required
+        >
 
-  <div id="recaptcha-container"></div>
+        <input
+            type="password"
+            id="password"
+            placeholder="Mot de passe"
+            required
+        >
 
-  <button id="registerBtn">Envoyer le code SMS</button>
+        <button type="submit">
+            Créer un compte
+        </button>
 
-  <input type="text" id="code" placeholder="Code reçu par SMS">
+    </form>
 
-  <button id="verifyBtn">Vérifier le code</button>
-
-  <p>
-    Vous avez déjà un compte ?
-    <a href="login.html">Se connecter</a>
-  </p>
+    <p>
+        Vous avez déjà un compte ?
+        <a href="login.html">Se connecter</a>
+    </p>
 
 </div>
 
