@@ -1,41 +1,37 @@
-import { auth } from "./firebase.js";
-import {
-  RecaptchaVerifier,
-  signInWithPhoneNumber
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+document.getElementById("loginBtn").addEventListener("click", async () => {
 
-window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
-  size: "normal",
-  callback: (response) => {
-    console.log("reCAPTCHA validé");
-  }
-});
-const form = document.getElementById("loginForm");
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const phoneNumber = document.getElementById("phone").value;
-
-    const appVerifier = window.recaptchaVerifier;
+    if (phone === "" || password === "") {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
 
     try {
-        const confirmationResult = await signInWithPhoneNumber(
-            auth,
-            phoneNumber,
-            appVerifier
-        );
 
-        window.confirmationResult = confirmationResult;
+        const response = await fetch("login.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                phone: phone,
+                password: password
+            })
+        });
 
-        const code = prompt("Entrez le code SMS reçu :");
+        const result = await response.json();
 
-        await confirmationResult.confirm(code);
-
-        alert("Connexion réussie !");
-        window.location.href = "dashboard.html";
+        if (result.success) {
+            alert("Connexion réussie !");
+            window.location.href = "dashboard.html";
+        } else {
+            alert(result.message);
+        }
 
     } catch (error) {
-        alert(error.message);
+        alert("Erreur de connexion au serveur.");
     }
+
 });
