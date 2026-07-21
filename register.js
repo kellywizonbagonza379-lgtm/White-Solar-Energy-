@@ -6,13 +6,18 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "TON_API_KEY",
-  authDomain: "TON_PROJET.firebaseapp.com",
-  projectId: "TON_PROJET",
-  storageBucket: "TON_PROJET.appspot.com",
-  messagingSenderId: "TON_MESSAGING_SENDER_ID",
-  appId: "TON_APP_ID"
-};
+  apiKey: "AIzaSyD6AK1vue6E9P9gqLr2xRw2ZxodY3am84M",
+    authDomain: "white-solar-energy.firebaseapp.com",
+    projectId: "white-solar-energy",
+    storageBucket: "white-solar-energy.firebasestorage.app",
+    messagingSenderId: "492509652443",
+    appId: "1:492509652443:web:b76eb2f5c3df51151573fe",
+    measurementId: "G-7J2S41C3CG"
+  };
+
+  // Initialize Firebase
+  
+  // Initialiser Firebase
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
