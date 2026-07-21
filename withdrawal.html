@@ -1,17 +1,99 @@
-<h2>Demande de retrait</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retrait - White Solar Energy</title>
 
-<form id="withdrawForm">
-  <input type="number" id="amount" placeholder="Montant" required>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f4f4;
+      margin:0;
+      padding:0;
+    }
 
-  <select id="method" required>
-    <option value="">Choisir un mode</option>
-    <option value="Mobile Money">Mobile Money</option>
-    <option value="Banque">Banque</option>
-  </select>
+    .container{
+      max-width:400px;
+      margin:40px auto;
+      background:#fff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
 
-  <input type="text" id="account" placeholder="Numéro de téléphone ou compte" required>
+    h2{
+      text-align:center;
+      color:#008000;
+    }
 
-  <button type="submit">Demander un retrait</button>
-</form>
+    label{
+      display:block;
+      margin-top:15px;
+      font-weight:bold;
+    }
 
-<p id="message"></p>
+    input, select, button{
+      width:100%;
+      padding:12px;
+      margin-top:5px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      box-sizing:border-box;
+    }
+
+    button{
+      background:#008000;
+      color:white;
+      border:none;
+      margin-top:20px;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#006600;
+    }
+
+    #message{
+      text-align:center;
+      margin-top:15px;
+      color:green;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Demande de retrait</h2>
+
+  <form id="withdrawForm">
+
+    <label>Nom complet</label>
+    <input type="text" id="name" required>
+
+    <label>Numéro Mobile Money</label>
+    <input type="tel" id="phone" placeholder="+256..." required>
+
+    <label>Montant (UGX)</label>
+    <input type="number" id="amount" min="10000" required>
+
+    <label>Réseau Mobile</label>
+    <select id="network" required>
+      <option value="">Choisir</option>
+      <option value="MTN">MTN Mobile Money</option>
+      <option value="Airtel">Airtel Money</option>
+    </select>
+
+    <button type="submit">Demander le retrait</button>
+
+  </form>
+
+  <p id="message"></p>
+</div>
+
+<script type="module" src="withdraw.js"></script>
+
+</body>
+</html>
